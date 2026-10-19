@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Учебный интернет-магазин">
+    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+    <meta property="og:image" content="https://Rain658658.github.io/kr1-html-css-shop/images/preview.jpg">
+
+    <title>Каталог товаров — Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">Магазин "Симфония разрушения"</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="index.html">
+              Главная
+            </a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">
+              Популярные товары
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Каталог</span>
+    </nav>
+
+
+    <section class="section">
+      <h1>Каталог товаров</h1>
+      <p class="page-text">
+        На этой странице представлен учебный каталог товаров.
+        В дальнейшем здесь будут добавлены фильтры, сортировка и более
+        подробные карточки.
+      </p>
+    </section>
+
+    <section class="catalog-layout">
+        <aside class="catalog-filters">
+            <h2>Фильтры</h2>
+
+            <form class="filters-form" action="#" method="get" id="filters-form">
+            <fieldset>
+                <legend>Категория</legend>
+
+                <label>
+
+                <label>
+                <input type="checkbox" name="category" value="Хит" id="popular">
+                Популярные
+                </label>
+
+                <label>
+                <input type="checkbox" name="category" value="Новинка" id="new">
+                Новинки
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Цена</legend>
+
+                <label for="price-from">От</label>
+                <input id="price-from" name="price-from" type="number" min="0" placeholder="0">
+
+                <label for="price-to">До</label>
+                <input id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+            </fieldset>
+            <div class="button-filter-flex">
+              <button class=" button button--reset" type="reset">Сбросить</button>
+              <button class="button" type="submit">Применить</button>
+            </div>
+            </form>
+        </aside>
+
+        <section class="catalog-products">
+            <h2>Список товаров</h2>
+            
+            <ul id="product-list" class="products-grid" aria-label="Список задач"></ul>
+        </section>
+        </section>
+
+  </main>
+<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 id="order-dialog-title">Оформление заявки</h2>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <input id="selected-product" name="selected-product" type="hidden">
+
+        <div class="form-field">
+        <label for="order-name">Имя</label>
+        <input
+            id="order-name"
+            name="name"
+            type="text"
+            placeholder="Введите ваше имя"
+            minlength="2"
+            autocomplete="given-name"
+            required
+        >
+        </div>
+
+        <div class="form-field">
+            <label for="order-email">E-mail</label>
+            <input
+                id="order-email"
+                name="email"
+                type="email"
+                placeholder="example@mail.ru"
+                autocomplete="email"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="order-phone">Телефон</label>
+            <input
+                id="order-phone"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                placeholder="+7 (900) 000-00-00"
+                pattern="^\{+7, 8} \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                required
+            >
+            <small>Формат: +7(8) (800) 555-35-35</small>
+        </div>
+
+        <div class="form-field">
+            <label for="order-date">Дата связи</label>
+            <input
+                id="order-date"
+                name="date"
+                type="date"
+            >
+        </div>
+
+        <div class="form-field">
+        <label for="order-topic">Тема заявки</label>
+        <select id="order-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="product">Заказ товара</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+        </select>
+        </div>
+
+        <div class="form-field">
+        <label for="order-comment">Комментарий</label>
+        <textarea
+            id="order-comment"
+            name="comment"
+            rows="4"
+            placeholder="Укажите дополнительную информацию"
+        ></textarea>
+        </div>
+
+        <div class="form-field form-field--checkbox">
+        <label>
+            <input
+            id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+            >
+            Я согласен на обработку данных
+        </label>
+        </div>
+
+        <div class="form-actions">
+            <button class="button button--primary" type="submit">
+            Отправить заявку
+            </button>
+
+            <button class="button button--secondary" id="close-order-dialog" type="button">
+            Закрыть
+            </button>
+
+        </div>
+    </form>
+    </dialog>
+
+    <dialog class="success-message" id="success-message" hidden>
+        <div class="after-form-actions">
+            <p>
+                Форма успешно отправлена!
+            </p>
+            <a class="button button--secondary" id="close-success-dialog" type="button" href="catalog.html">
+                Вернуться в каталог 
+            </a>
+        </div>
+    </dialog>
+  <footer>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+  </footer>
+</body>
+</html>

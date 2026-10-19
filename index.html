@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Учебный интернет-магазин">
+    <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+    <meta property="og:image" content="https://username.github.io/kr1-html-css-shop/images/preview.jpg">
+
+    <title>Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <img class="site-header-logo-img" src="images/СимфонияРазрушения.png" alt="СимфонияРазрушения">
+            <a class="site-header__logo" href="index.html">Магазин "Симфония разрушения"</a>
+
+            <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item">
+                <a class="site-nav__link site-nav__link--active" href="index.html">
+                    Главная
+                </a>
+                </li>
+                <li class="site-nav__item">
+                <a class="site-nav__link" href="catalog.html">Каталог</a>
+                </li>
+                <li class="site-nav__item">
+                <a class="site-nav__link" href="contacts.html">Контакты</a>
+                </li>
+                <li class="site-nav__item">
+                <a class="site-nav__link" href="index.html#popular">
+                    Популярные товары
+                </a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+        <section class="hero">
+            <h1>Учебный интернет-магазин</h1>
+            <p>
+                Это стартовая страница учебного frontend-проекта.
+                В дальнейшем на её основе будет разработан многостраничный сайт
+                интернет-магазина или каталога услуг.
+            </p>
+            <a class="button" href="#popular">Перейти к товарам</a>
+        </section>
+        <section class="section" id="advantages">
+            <h2>Преимущества проекта</h2>
+
+            <ul class="advantages-list">
+                <li>понятная HTML-структура;</li>
+                <li>семантические блоки страницы;</li>
+                <li>подключение внешнего CSS-файла;</li>
+                <li>подготовка к разработке многостраничного сайта.</li>
+            </ul>
+        </section>
+        <section class="section" id="popular">
+            <h2>Популярные товары</h2>
+
+            <ul id="hit-list" class="products-grid" aria-label="Список задач"></ul>
+        </section>
+
+        <aside class="aside-info">
+            <h2>Информация для студентов</h2>
+            <p>
+                На следующих практических занятиях этот проект будет расширяться:
+                появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
+                БЭМ-структура и адаптивная версия сайта.
+            </p>
+        </aside>
+    </main>
+
+    <footer id="contacts">
+        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 id="order-dialog-title">Оформление заявки</h2>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <input id="selected-product" name="selected-product" type="hidden">
+
+        <div class="form-field">
+        <label for="order-name">Имя</label>
+        <input
+            id="order-name"
+            name="name"
+            type="text"
+            placeholder="Введите ваше имя"
+            minlength="2"
+            autocomplete="given-name"
+            required
+        >
+        </div>
+
+        <div class="form-field">
+            <label for="order-email">E-mail</label>
+            <input
+                id="order-email"
+                name="email"
+                type="email"
+                placeholder="example@mail.ru"
+                autocomplete="email"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="order-phone">Телефон</label>
+            <input
+                id="order-phone"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                placeholder="+7 (900) 000-00-00"
+                pattern="^\{+7, 8} \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                required
+            >
+            <small>Формат: +7(8) (800) 555-35-35</small>
+        </div>
+
+        <div class="form-field">
+            <label for="order-date">Дата связи</label>
+            <input
+                id="order-date"
+                name="date"
+                type="date"
+            >
+        </div>
+
+        <div class="form-field">
+        <label for="order-topic">Тема заявки</label>
+        <select id="order-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="product">Заказ товара</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+        </select>
+        </div>
+
+        <div class="form-field">
+        <label for="order-comment">Комментарий</label>
+        <textarea
+            id="order-comment"
+            name="comment"
+            rows="4"
+            placeholder="Укажите дополнительную информацию"
+        ></textarea>
+        </div>
+
+        <div class="form-field form-field--checkbox">
+        <label>
+            <input
+            id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+            >
+            Я согласен на обработку данных
+        </label>
+        </div>
+
+        <div class="form-actions">
+            <button class="button button--primary" type="submit">
+            Отправить заявку
+            </button>
+
+            <button class="button button--secondary" id="close-order-dialog" type="button">
+            Закрыть
+            </button>
+
+        </div>
+    </form>
+    </dialog>
+    <dialog class="success-message" id="success-message" hidden>
+        <div class="after-form-actions">
+            <p>
+                Форма успешно отправлена!
+            </p>
+            <a class="button button--secondary" id="close-success-dialog" type="button" href="catalog.html">
+                Вернуться в каталог 
+            </a>
+        </div>
+    </dialog>
+</body>
+</html>
