@@ -1,44 +1,49 @@
 const newProductCard = (product) => {
     const li = document.createElement('li');
-    li.classList.add('product-card');
-    li.dataset.id = product.article;
+    li.className = 'col-12 col-md-6 col-lg-4';
     
+    // li.classList.add('card-body d-flex flex-column');
+    li.dataset.id = product.article;
+    const card = document.createElement('div');
+    card.className = 'card shadow-sm card-body h-100 d-flex flex-column gap-3';
 
     const image = document.createElement('img');
     image.classList.add('product-card-image')
     image.src = product.imageSrc;
     image.alt = product.imageAlt;
-    
+
     const title = document.createElement('strong');
-    title.classList.add('product-card__title')
+    title.className = 'card-title h5 mb-0';
     title.textContent = product.name;
 
     const category = document.createElement('span');
-    category.classList.add('product-card__category');
+    category.className = 'badge bg-success align-self-end';
     category.textContent = product.category;
     
     const desc = document.createElement('span');
-    desc.classList.add('product-card__description')
+    desc.className = 'card-text text-muted';
     desc.textContent = product.description;
     // desc.style.display = 'block'; 
     
     const price = document.createElement('span');
-    price.classList.add('product-card__price')
+    price.className = 'fw-bold fs-5 mt-auto'
     price.textContent = `${product.price} руб.`;
     price.style.display = 'block'; 
 
     const orderBtn = document.createElement('button');
-    orderBtn.className = "button product-card__button";
+    orderBtn.className = "btn btn-primary product-card__button";
     orderBtn.textContent = "Заказать"
+    orderBtn.dataset.product = product.name;
 
-    li.appendChild(image);
-    li.appendChild(title);
+    card.appendChild(image);
+    card.appendChild(title);
     if (category.textContent != '') {
-        li.appendChild(category);
+        card.appendChild(category);
     }
-    li.appendChild(desc);
-    li.appendChild(price);
-    li.appendChild(orderBtn);
+    card.appendChild(desc);
+    card.appendChild(price);
+    card.appendChild(orderBtn);
+    li.appendChild(card);
 
     return li;
 }
