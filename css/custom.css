@@ -1,3 +1,7 @@
+nav {
+  background-color: rgb(0, 21, 89);
+}
+
 body {
   min-height: 100vh;
 }
@@ -14,3 +18,17 @@ body {
   height: 180px;
   object-fit: cover;
 }
+
+
+.custom-carousel-height {
+  height: 350px; 
+}
+
+/* Принудительно ограничиваем высоту каждого слайда и картинки */
+.custom-carousel-height .carousel-item,
+.custom-carousel-height .carousel-item img {
+  height: 400px !important; /* !important перебьет внутренние расчеты Bootstrap */
+  max-height: 400px !important;
+  object-fit: cover; /* Картинка масштабируется без искажения пропорций */
+}
+
