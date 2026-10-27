@@ -1,6 +1,6 @@
 import {getProducts} from "./products.js"
 import {findThreeHits, viewProducts, filterCategories, filterPrice} from "./catalog-service.js"
-
+import {NavBar, footer} from "./components.js"
 
 const productsList = getProducts();
 const selectedProductInput = document.getElementById('selected-product');
@@ -13,6 +13,8 @@ const closeSuccessDialogButton = document.getElementById('close-success-dialog')
 document.addEventListener('DOMContentLoaded', () => {
   viewProducts(productsList); 
   findThreeHits(productsList);
+  NavBar();
+  footer();
 
   const filtersForm = document.getElementById('filters-form');
 
